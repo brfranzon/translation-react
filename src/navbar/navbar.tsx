@@ -5,27 +5,20 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-import { useState } from "react";
+import { useContext } from "react";
+import LanguageContext from "../context/language-ctx";
 
 const Navbar = () => {
-
-  const handleChange = (event: any) => {
-    localStorage.setItem("lang", event.target.value);
-    window.location.reload();
-  };
+  const { language, setLanguage } = useContext(LanguageContext);
 
   return (
-    <Box
-      sx={{ maxWidth: 120 }}
-      style={{ padding: 60, backgroundColor: "yellow" }}
-    >
-      <FormControl fullWidth>
-        <InputLabel>Language</InputLabel>
+    <Box maxWidth="120" style={{ padding: 60, backgroundColor: "yellow" }}>
+      <FormControl fullWidth style = {{width: 300}}>
+        <InputLabel>Language - {language}</InputLabel>
         <Select
-          labelId="ang"
-          value={localStorage.getItem('lang') || 'en'}
-          label="Language"
-          onChange={handleChange}
+          // value={localStorage.getItem("lang") || "en"}
+          value={language || "en"}
+          onChange={e => setLanguage(e.target.value)}
         >
           <MenuItem value="de">German</MenuItem>
           <MenuItem value="en">English</MenuItem>
