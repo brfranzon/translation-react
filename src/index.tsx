@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './i18n'; 
+import i18next from 'i18next';
+
+const lang = localStorage.getItem('lang') || 'en';
+console.log('lang: ', lang); 
+i18next.changeLanguage(lang);
 
 ReactDOM.render(
   <React.StrictMode>
