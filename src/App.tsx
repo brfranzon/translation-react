@@ -17,6 +17,8 @@ function App() {
   const {language} = useContext(LanguageContext); 
   i18next.changeLanguage(language);
 
+  console.log('render app'); 
+
   return (
     <Box
       pt="60px"

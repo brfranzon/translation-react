@@ -9,6 +9,7 @@ import { useContext } from "react";
 import LanguageContext from "../context/language-ctx";
 
 const Navbar = () => {
+  
   const { language, setLanguage } = useContext(LanguageContext);
 
   return (
